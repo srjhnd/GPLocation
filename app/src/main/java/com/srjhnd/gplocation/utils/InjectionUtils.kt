@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object InjectionUtils {
     private const val BASE_URL = "https://surajhande.pythonanywhere.com"
     fun getLocationRepository(context: Context): LocationRepository {
-        val httpLoggingInterceptor = HttpLoggingInterceptor()
+        val httpLoggingInterceptor = HttpLoggingInterceptor()  /* Htttp logging interceptor for detailed network logs */
         httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor(httpLoggingInterceptor)
