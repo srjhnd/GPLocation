@@ -94,11 +94,12 @@ class GPLocationService : Service() {
             .setContentTitle(getString(R.string.app_name))
             .setContentIntent(activityPendingIntent)
             .setOngoing(true)
+            .setPriority(Notification.PRIORITY_HIGH)
             .setSmallIcon(android.R.drawable.ic_menu_mylocation)
             .setTicker("Location is being posted in the background.")
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            builder.setChannelId(CHANNEL_ID) // Channel ID
+            builder.setChannelId(CHANNEL_ID)
         }
         return builder.build()
     }

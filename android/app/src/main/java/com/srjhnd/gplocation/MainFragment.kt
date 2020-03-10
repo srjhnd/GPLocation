@@ -72,6 +72,11 @@ class MainFragment : Fragment() {
         InjectionUtils.provideLocationViewModel(requireActivity().application)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -89,12 +94,7 @@ class MainFragment : Fragment() {
             /* start location tracking if all permissions satisfied */
             gpLocationService?.startLocationUpdates()
         }
-        activity?.bindService(
-            Intent(
-                (activity as Activity),
-                GPLocationService::class.java
-            ), serviceConnection, Context.BIND_AUTO_CREATE
-        )
+
         return binding.root
     }
 
@@ -186,16 +186,27 @@ class MainFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+
+        Log.d(LOG_TAG, "onResume() called")
+        activity?.bindService(
+            Intent(
+                (activity as Activity),
+                GPLocationService::class.java
+            ), serviceConnection, Context.BIND_AUTO_CREATE
+        )
+
         LocalBroadcastManager.getInstance(activity as Activity)
             .registerReceiver(locationReceiver, IntentFilter(GPLocationService.PACKAGE_NAME))
     }
 
     override fun onPause() {
         super.onPause()
+        Log.d(LOG_TAG, "onPause() called")
         LocalBroadcastManager.getInstance(activity as Activity).unregisterReceiver(locationReceiver)
     }
 
     override fun onStop() {
+        Log.d(LOG_TAG, "onStop() called")
         if (bound) {
             activity?.unbindService(serviceConnection)
             bound = false
