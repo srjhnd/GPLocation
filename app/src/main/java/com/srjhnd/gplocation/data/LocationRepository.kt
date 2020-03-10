@@ -48,6 +48,7 @@ class LocationRepository private constructor(
         SharedPrefsUtils.putSignifiedLocation(applicationContext, location)
     }
 
+    /* posting location using Location API service */
     suspend fun postLocation(location: Location) {
         var responseBody = null
         try {
