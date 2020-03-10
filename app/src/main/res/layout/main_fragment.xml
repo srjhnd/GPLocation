@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="location"
+            type="com.srjhnd.gplocation.data.Location" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/parentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--        <com.google.android.gms.maps.MapView-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="350dp"-->
+            <!--            android:layout_marginTop="100dp"-->
+            <!--            app:layout_constraintTop_toBottomOf="@+id/latitudeValue"-->
+            <!--            tools:layout_editor_absoluteX="0dp" />-->
+
+            <TextView
+                android:id="@+id/longitudeValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="52dp"
+                android:text="@{Double.toString(location.longitude)}"
+                android:textAppearance="@style/Widget.MaterialComponents.TextView"
+                android:textSize="@dimen/value_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.554"
+                app:layout_constraintStart_toEndOf="@+id/longitudeText"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/latitudeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="44dp"
+                android:text="Latitude:"
+                android:textAppearance="@style/Widget.MaterialComponents.TextView"
+                android:textSize="@dimen/heading_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/longitudeText" />
+
+            <TextView
+                android:id="@+id/latitudeValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="36dp"
+                android:text="@{Double.toString(location.latitude)}"
+                android:textAppearance="@style/Widget.MaterialComponents.TextView"
+                android:textSize="@dimen/value_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.597"
+                app:layout_constraintStart_toEndOf="@+id/latitudeText"
+                app:layout_constraintTop_toBottomOf="@+id/longitudeValue" />
+
+            <TextView
+                android:id="@+id/longitudeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="55dp"
+                android:text="Longitude:"
+                android:textAppearance="@style/Widget.MaterialComponents.TextView"
+                android:textSize="@dimen/heading_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="@{location.time}"
+                android:textAppearance="@style/Widget.MaterialComponents.TextView"
+                android:textSize="@dimen/time_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/latitudeText" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</layout>
