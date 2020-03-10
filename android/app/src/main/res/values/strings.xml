@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GPLocation</string>
+    <string name="gp_location">Launch GPLocation</string>
+    <string name="pause_tracking">pause tracking</string>
+</resources>
