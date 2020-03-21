@@ -1,6 +1,7 @@
 # GPLocation
 
 <b>android</b> folder contains code for android app that posts location via REST api to a django web-app.
+This android app uses FusedLocationProvider API to aggregate location from different sources (wifi, network, etc.).
 
 <b>web-app</b> folder contains source code for the django app. The same app is hosted on <a target="_blank" href="http://surajhande.pythonanywhere.com/location/"/>PythonAnywhere</a>
 
